@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Saazid Bin Saif | GIS & RS Specialist</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            /* Deep Dark Overlay for Black Glass Effect */
+            --bg-overlay: rgba(0, 0, 0, 0.85); 
+            --text-color: #f1f5f9;
+            --text-muted: #cbd5e1;
+            --primary-color: #22d3ee; /* Cyan */
+            --secondary-color: #60a5fa; /* Blue */
+            
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            --nav-bg: rgba(15, 23, 42, 0.98);
+        }
+
+        body.light-mode {
+            --bg-overlay: rgba(255, 255, 255, 0.85);
+            --text-color: #0f172a;
+            --text-muted: #334155;
+            --primary-color: #0891b2;
+            --secondary-color: #2563eb;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+        html { scroll-behavior: smooth; font-size: 15px; } /* Slightly smaller base font for density */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.5;
+        }
+
+        /* --- BACKGROUND SETUP --- */
+        .background-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            /* UPDATED BACKGROUND PATH */
+            background-image: url('D:/Portfolio Website/Saazid12.jpg');
+            background-position: center top; /* Focus on top to show head */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .glass-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: var(--bg-overlay);
+            backdrop-filter: blur(8px); /* Glassy Vibe */
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        h4 { font-size: 1.1rem; color: var(--text-color); font-weight: 600; margin-bottom: 0.2rem; }
+        p, li { font-size: 0.95rem; color: var(--text-muted); }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 0.6rem 0; z-index: 1000;
+            background: var(--nav-bg); border-bottom: 1px solid var(--glass-border);
+        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary-color); }
+        
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .menu-toggle { display: none; cursor: pointer; color: var(--text-color); font-size: 1.5rem; }
+        #theme-toggle { background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 1.1rem; }
+
+        /* --- SECTIONS (Dense Layout) --- */
+        section { padding: 35px 0; }
+
+        .glass-card {
+            background: var(--glass-bg);
+            border-radius: 12px;
+            box-shadow: var(--glass-shadow);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            height: 100%;
+        }
+        .glass-card:hover { transform: translateY(-3px); border-color: var(--primary-color); }
+
+        /* --- HERO --- */
+        #hero {
+            min-height: 80vh;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            padding-top: 60px;
+        }
+        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem; }
+        .hero-text span { color: var(--primary-color); }
+        .hero-text h2 { font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        .hero-text p { max-width: 700px; margin: 0 auto 1.5rem auto; font-size: 1rem; }
+        
+        .btn {
+            display: inline-block; padding: 8px 25px; margin: 5px;
+            border: 1px solid var(--primary-color); color: var(--primary-color);
+            text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+        }
+        .btn:hover { background: var(--primary-color); color: #000; }
+
+        /* --- ABOUT & PHOTO --- */
+        .about-grid {
+            display: grid; grid-template-columns: 280px 1fr; gap: 2rem; align-items: start;
+        }
+        .about-photo {
+            width: 100%; height: auto; object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--glass-border);
+            padding: 10px; /* Padding for less congestion */
+            background: rgba(255,255,255,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .info-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem; }
+        .info-item { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
+        .info-item i { color: var(--primary-color); width: 20px; text-align: center; }
+
+        /* --- EXPERIENCE --- */
+        .exp-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1rem; margin-bottom: 1rem;
+        }
+        .exp-date { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600; }
+
+        /* --- SIDE BY SIDE: EDUCATION & TRAINING --- */
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two Equal Columns */
+            gap: 1.5rem;
+        }
+        .list-item { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); }
+        .list-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+        /* --- SKILLS --- */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+        .skill-list { list-style: none; padding-left: 0; }
+        .skill-list li { margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px; }
+        .skill-list li::before { content: '•'; color: var(--primary-color); font-weight: bold; }
+        
+        .rating-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; }
+        .rating-item { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; }
+
+        /* --- ACTIVITIES & CERTIFICATIONS --- */
+        .activity-grid, .cert-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        .cert-item { display: flex; gap: 1rem; align-items: start; }
+        .cert-icon { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; flex-shrink: 0; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--nav-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--glass-border);
+        }
+        .social-icons { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        
+        .social-btn {
+            display: inline-flex; width: 40px; height: 40px; border-radius: 50%;
+            background: var(--glass-bg); color: var(--text-color); align-items: center; justify-content: center;
+            margin: 0 5px; text-decoration: none; border: 1px solid var(--glass-border);
+            font-size: 1.2rem;
+        }
+        .social-btn:hover { background: var(--primary-color); color: #000; transform: translateY(-3px); }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 992px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
+                background: var(--nav-bg); flex-direction: column; justify-content: center;
+                transition: 0.4s; backdrop-filter: blur(10px);
+            }
+            .nav-links.active { right: 0; }
+            .menu-toggle { display: block; }
+            
+            .about-grid, .split-grid { grid-template-columns: 1fr; } /* Stack elements on mobile */
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text h2 { font-size: 1.2rem; }
+            .section-title { font-size: 1.5rem; }
+            
+            /* Center Image on Mobile */
+            .about-photo-wrapper { text-align: center; margin-bottom: 1.5rem; }
+            .about-photo { max-width: 320px; } 
+
+            .glass-card { padding: 1.2rem; }
+            .info-list { grid-template-columns: 1fr; }
+            
+            /* Enable scroll on background for mobile */
+            .background-container { background-attachment: scroll; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 { font-size: 1.8rem; }
+            .btn { width: 100%; margin: 5px 0; text-align: center; }
+            .social-icons { gap: 0.5rem; }
+            .rating-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+</head><body>
+
+    <div class="background-container"></div>
+    <div class="glass-overlay"></div>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#about" onclick="toggleMenu()">About</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+                <li><a href="#education-training" onclick="toggleMenu()">Edu & Training</a></li>
+                <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#activities" onclick="toggleMenu()">Activities</a></li>
+                <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle"><i class="fas fa-moon"></i></button>
+                <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Md Saazid Bin Saif</h1>
+                <h2>Researcher and Trainer- Institute of GIS & Remote Sensing</h2>
+                <p>Versatile and results-driven professional with skills in digital marketing, data management, web development, and GIS applications. Eager to contribute to tech-driven, creative projects while continuously growing as a proactive team player.</p>
+                <a href="#contact" class="btn">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="glass-card">
+                <div class="about-grid">
+                    <div class="about-photo-wrapper">
+                        <img src="D:\Portfolio Website\AF-94132.jpg" alt="Md Saazid" class="about-photo" 
+                             onerror="this.src='https://via.placeholder.com/300?text=Saazid';">
+                    </div>
+                    
+                    <div class="about-content">
+                        <h3 style="margin-top: 0;">Profile</h3>
+                        <p>A dedicated Researcher & Trainer specializing in Geographic Information System (GIS) & Remote Sensing. Experienced in leading research groups and applying advanced spatial analysis to environmental challenges.</p>
+                        
+                        <div class="info-list">
+                            <div class="info-item"><i class="fas fa-phone"></i> +880 1603012448</div>
+                            <div class="info-item"><i class="fas fa-envelope"></i> saazidaid@gmail.com</div>
+<div class="info-item"><i class="fas fa-map-marker-alt"></i> Mirzapur, Rajshahi</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="glass-card">
+                <div class="exp-item">
+                    <h3>Researcher and Trainer</h3>
+                    <h4>Institute of GIS & Remote Sensing</h4>
+                    <div class="exp-date">June 2025 - Present</div>
+                </div>
+                
+                <div class="exp-item">
+                    <h3>Researcher</h3>
+                    <h4>Bangladesh Green Environment Research Centre (BGERC)</h4>
+                    <div class="exp-date">March 23, 2025 - Present</div>
+                    <ul>
+                        <li>Head of the research group team.</li>
+                        <li>Specialized in Geographic Information System & Remote Sensing.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education-training">
+        <div class="container">
+            <div class="split-grid">
+                
+                <div class="glass-card">
+                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="list-item">
+                        <h3>Bachelor of Science (Geography & Environmental Studies)</h3>
+                        <h4>University of Rajshahi</h4>
+                        <p>2023 - Present</p>
+                    </div>
+
+                    <div class="list-item">
+                        <h3>H.S.C (Science)</h3>
+                        <h4>BCIC College, Mirpur, Dhaka</h4>
+                        <p>Session: 2020-21 | Result: 5.00</p>
+                    </div>
+
+                    <div class="list-item">
+                        <h3>S.S.C (Science)</h3>
+                        <h4>Monipur Uchcha Vidyalaya and College</h4>
+                        <p>Session: 2019-20 | Result: 5.00</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
+                    
+                    <div class="list-item">
+                        <h3>Professional training on GIS Basic to Advance</h3>
+                        <h4>Bangladesh Green Environmental Research Centre</h4>
+                        <p>March 1, 2024 to Present</p>
+                    </div>
+
+                    <div class="list-item">
+                        <h3>Workshop on "Careers on Climate Change"</h3>
+                        <h4>Organized By: Bangladesh Youth Climate School</h4>
+                        <p>Collaborator: Brighters</p>
+                    </div>
+
+                    <div class="list-item">
+                        <h3>Awareness Rally to Prevent Lead Pollution</h3>
+                        <h4>Organized By: YouthNet Bangladesh</h4>
+                        <p>Collaborator: UNICEF, Bangladesh</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="glass-card">
+                    <h3>GIS & RS</h3>
+                    <ul class="skill-list">
+                        <li>ArcGIS 10.8</li>
+			<li>ArcGIS Pro</li>
+                        <li>Google Earth Pro</li>
+                        <li>Google Earth Engine</li>
+                        <li>ENVI</li>
+                        <li>QGIS</li>
+                        <li>Agisoft Metasoft</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Coding & Development</h3>
+                    <ul class="skill-list">
+                        <li>ArcPy for ArcMap</li>
+                        <li>Google Earth Engine</li>
+                        <li>Python for Data Analysis</li>
+                        <li>SPSS</li>
+			<li>R Language</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card">
+                    <h3>Tools & Ratings</h3>
+                    <div class="rating-grid">
+                        <div class="rating-item"><span>MS Excel</span> <span>5/10</span></div>
+                        <div class="rating-item"><span>Power Point</span> <span>8/10</span></div>
+                        <div class="rating-item"><span>MS Word</span> <span>9/10</span></div>
+                        <div class="rating-item"><span>JavaScript Basic</span> <span>6/10</span></div>
+                        <div class="rating-item"><span>R Language</span> <span>6/10</span></div>
+                        <div class="rating-item"><span>Python Basic</span> <span>5/10</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="activities">
+        <div class="container">
+            <h2 class="section-title">Extracurricular Activities</h2>
+            <div class="glass-card">
+                <div class="list-item">
+                    <h4>Active Participant of Workshop on "Careers on Climate Change"</h4>
+                    <p>Bangladesh Youth Climate School | 23 December, 2023</p>
+                </div>
+                <div class="list-item">
+                    <h4>Script & Content Writer</h4>
+                    <p>Rajshahi University Entrepreneur Association (RUEA)</p>
+                </div>
+                <div class="list-item">
+                    <h4>Content Writer</h4>
+                    <p>Save Climate Movement, Rajshahi</p>
+                </div>
+                <div class="list-item">
+                    <h4>Youth Mappers Bangladesh Summit 2023</h4>
+                    <p>Collaborator: Eastern University | Dec 08, 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="glass-card">
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div>
+                        <h3>Machine Learning with Python</h3>
+                        <p>Lead Academy (Endorsed by UN Global Compact) | Feb 2025</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div>
+                        <h3>Fundamental GIS Course</h3>
+                        <p>Bangladesh Green Environmental Research Center | ID: BGERC-05008</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div>
+                        <h3>ArcPy for ArcMap Level 1</h3>
+                        <p>Udemy: Python Programming for ArcGIS</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-certificate cert-icon"></i>
+                    <div>
+                        <h3>The Impact of Space Flight on the Environment</h3>
+                        <p>Alison | September 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2 style="margin-bottom: 2rem;">Connect With Me</h2>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Saazid24" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/saazid/" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCh7rxk-zls5ahpsBchpMtYw" class="social-btn"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/nameless_person2004/" class="social-btn"><i class="fab fa-instagram"></i></a>
+                <a href="https://scholar.google.com/citations?user=1ZUcngUAAAAJ&hl=en" class="social-btn"><i class="ai ai-google-scholar"></i></a>
+                <a href="https://orcid.org/0009-0005-2538-1828" class="social-btn"><i class="ai ai-orcid"></i></a>
+            </div>
+            <p>&copy; 2025 Md Saazid Bin Saif. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle Mobile Menu
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        const icon = themeBtn.querySelector('i');
+        const body = document.body;
+
+        if(localStorage.getItem('theme') === 'light'){
+            body.classList.add('light-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if(body.classList.contains('light-mode')){
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>
