@@ -267,8 +267,14 @@
         /* --- ACTIVITIES & CERTIFICATIONS --- */
         .activity-grid, .cert-grid { display: grid;
             grid-template-columns: 1fr; gap: 1rem; }
-        .cert-item { display: flex; gap: 1rem; align-items: start;
+        
+        /* এখানে মডিফাই করা হয়েছে */
+        .cert-item { display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem;
         }
+        .cert-item:last-child { margin-bottom: 0; }
+        .cert-item h3 { margin-bottom: 0.1rem; }
+        /* মডিফাই শেষ */
+        
         .cert-icon { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; flex-shrink: 0;
         }
 
