@@ -34,10 +34,8 @@
             --nav-bg: rgba(255, 255, 255, 0.95);
         }
 
-        * { margin: 0; padding: 0;
-            box-sizing: border-box; transition: all 0.3s ease; }
-        html { scroll-behavior: smooth; font-size: 15px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+        html { scroll-behavior: smooth; font-size: 15px; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -87,12 +85,9 @@
             letter-spacing: 1px;
         }
 
-        h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.5rem;
-        }
-        h4 { font-size: 1.1rem; color: var(--text-color); font-weight: 600; margin-bottom: 0.2rem;
-        }
-        p, li { font-size: 0.95rem; color: var(--text-muted);
-        }
+        h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.5rem; }
+        h4 { font-size: 1.1rem; color: var(--text-color); font-weight: 600; margin-bottom: 0.2rem; }
+        p, li { font-size: 0.95rem; color: var(--text-muted); }
 
         /* --- NAVIGATION --- */
         nav {
@@ -100,28 +95,19 @@
             top: 0; width: 100%; padding: 0.6rem 0; z-index: 1000;
             background: var(--nav-bg); border-bottom: 1px solid var(--glass-border);
         }
-        nav .container { display: flex; justify-content: space-between; align-items: center;
-        }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); text-decoration: none;
-        }
+        nav .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
         
-        .nav-links { display: flex;
-            list-style: none; gap: 1.2rem; }
-        .nav-links a { color: var(--text-color); text-decoration: none;
-            font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--primary-color);
-        }
+        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+        .nav-links a:hover { color: var(--primary-color); }
         
-        .nav-actions { display: flex;
-            align-items: center; gap: 15px; }
-        .menu-toggle { display: none; cursor: pointer; color: var(--text-color);
-            font-size: 1.5rem; transition: transform 0.3s ease; }
-        #theme-toggle { background: none; border: none;
-            color: var(--text-color); cursor: pointer; font-size: 1.1rem; }
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .menu-toggle { display: none; cursor: pointer; color: var(--text-color); font-size: 1.5rem; transition: transform 0.3s ease; }
+        #theme-toggle { background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 1.1rem; }
 
         /* --- SECTIONS --- */
-        section { padding: 35px 0;
-        }
+        section { padding: 35px 0; }
 
         .glass-card {
             background: var(--glass-bg);
@@ -133,8 +119,7 @@
             padding: 1.5rem;
             height: 100%;
         }
-        .glass-card:hover { transform: translateY(-3px); border-color: var(--primary-color);
-        }
+        .glass-card:hover { transform: translateY(-3px); border-color: var(--primary-color); }
 
         /* --- HERO --- */
         #hero {
@@ -142,22 +127,17 @@
             display: flex; align-items: center; justify-content: center; text-align: center;
             padding-top: 60px;
         }
-        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem;
-        }
-        .hero-text span { color: var(--primary-color);
-        }
-        .hero-text h2 { font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem;
-        }
-        .hero-text p { max-width: 700px; margin: 0 auto 1.5rem auto; font-size: 1rem;
-        }
+        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem; }
+        .hero-text span { color: var(--primary-color); }
+        .hero-text h2 { font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem; }
+        .hero-text p { max-width: 700px; margin: 0 auto 1.5rem auto; font-size: 1rem; }
         .btn {
             display: inline-block;
             padding: 8px 25px; margin: 5px;
             border: 1px solid var(--primary-color); color: var(--primary-color);
             text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
         }
-        .btn:hover { background: var(--primary-color); color: #000;
-        }
+        .btn:hover { background: var(--primary-color); color: #000; }
 
         /* --- ABOUT & PROFILE --- */
         .about-grid {
@@ -180,45 +160,34 @@
             gap: 0.8rem;
             margin-top: 1rem;
         }
-        .info-item { display: flex; align-items: center;
-            gap: 10px; font-size: 0.95rem; }
-        .info-item i { color: var(--primary-color); width: 20px;
-            text-align: center; }
+        .info-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+        .info-item i { color: var(--primary-color); width: 20px; text-align: center; }
 
         /* --- EXPERIENCE --- */
-        .exp-item { border-left: 2px solid var(--primary-color);
-            padding-left: 1rem; margin-bottom: 1rem; }
-        .exp-date { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600;
-        }
+        .exp-item { border-left: 2px solid var(--primary-color); padding-left: 1rem; margin-bottom: 1rem; }
+        .exp-date { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600; }
 
         /* --- SPLIT GRIDS --- */
-        .split-grid { display: grid;
-            grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .list-item { margin-bottom: 1rem; padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--glass-border); }
-        .list-item:last-child { border-bottom: none; margin-bottom: 0;
-        }
+        .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .list-item { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); }
+        .list-item:last-child { border-bottom: none; margin-bottom: 0; }
         
         /* --- PUBLICATIONS --- */
         .pub-meta {
             display: flex;
             flex-wrap: wrap; gap: 15px; margin-bottom: 10px; font-size: 0.9rem; color: var(--secondary-color);
         }
-        .pub-meta span { display: flex; align-items: center; gap: 6px;
-        }
+        .pub-meta span { display: flex; align-items: center; gap: 6px; }
         .pub-abstract {
             font-size: 0.9rem;
             margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
         }
-        .pub-links a { color: var(--primary-color); font-size: 0.85rem; text-decoration: none; font-weight: 600;
-        }
-        .pub-links a:hover { text-decoration: underline;
-        }
+        .pub-links a { color: var(--primary-color); font-size: 0.85rem; text-decoration: none; font-weight: 600; }
+        .pub-links a:hover { text-decoration: underline; }
 
         /* --- PROJECTS --- */
         .projects-grid {
             display: grid;
-            /* CHANGE HERE: Force 5 columns on desktop */
             grid-template-columns: repeat(5, 1fr);
             gap: 1.5rem;
         }
@@ -232,8 +201,7 @@
             flex-direction: column;
             padding: 0;
         }
-        .project-card:hover { transform: translateY(-3px); border-color: var(--primary-color);
-        }
+        .project-card:hover { transform: translateY(-3px); border-color: var(--primary-color); }
         
         .project-img {
             width: 100%;
@@ -251,38 +219,25 @@
         }
 
         /* --- SKILLS --- */
-        .skills-grid { display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
-        .skill-list { list-style: none; padding-left: 0;
-        }
-        .skill-list li { margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px;
-        }
-        .skill-list li::before { content: '•'; color: var(--primary-color); font-weight: bold;
-        }
-        .rating-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem;
-        }
-        .rating-item { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 10px;
-            border-radius: 4px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+        .skill-list { list-style: none; padding-left: 0; }
+        .skill-list li { margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px; }
+        .skill-list li::before { content: '•'; color: var(--primary-color); font-weight: bold; }
+        .rating-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; }
+        .rating-item { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; }
 
         /* --- ACTIVITIES & CERTIFICATIONS --- */
-        .activity-grid, .cert-grid { display: grid;
-            grid-template-columns: 1fr; gap: 1rem; }
+        .activity-grid, .cert-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
         
-        /* এখানে মডিফাই করা হয়েছে */
-        .cert-item { display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem;
-        }
+        .cert-item { display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem; }
         .cert-item:last-child { margin-bottom: 0; }
         .cert-item h3 { margin-bottom: 0.1rem; }
-        /* মডিফাই শেষ */
         
-        .cert-icon { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; flex-shrink: 0;
-        }
+        .cert-icon { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; flex-shrink: 0; }
 
         /* --- FOOTER --- */
-        footer { background: var(--nav-bg);
-            padding: 2rem 0; text-align: center; border-top: 1px solid var(--glass-border); }
-        .social-icons { display: flex;
-            justify-content: center; gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        footer { background: var(--nav-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--glass-border); }
+        .social-icons { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap; }
         .social-btn {
             display: inline-flex;
             width: 40px; height: 40px; border-radius: 50%;
@@ -291,29 +246,24 @@
             border: 1px solid var(--glass-border);
             font-size: 1.2rem;
         }
-        .social-btn:hover { background: var(--primary-color); color: #000;
-            transform: translateY(-3px); }
+        .social-btn:hover { background: var(--primary-color); color: #000; transform: translateY(-3px); }
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 992px) {
-            .hero-text h1 { font-size: 2.5rem;
-            }
-            .section-title { font-size: 1.8rem;
-            }
-            /* Tablet adjustments: Maybe 2 or 3 columns here if needed, but keeping 5 for large screens */
+            .hero-text h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
              .projects-grid { 
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets/smaller laptops */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
-        /* Force 5 columns ONLY on larger screens (Laptop/Desktop > 1024px) */
         @media (min-width: 1024px) {
              .projects-grid {
                 grid-template-columns: repeat(5, 1fr);
             }
         }
 
-        /* --- MOBILE MENU (MODIFIED) --- */
+        /* --- MOBILE MENU --- */
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -337,8 +287,7 @@
                 gap: 0; 
             }
             
-            .nav-links.active { right: 0;
-            }
+            .nav-links.active { right: 0; }
 
             .nav-links li {
                 margin: 0;
@@ -349,25 +298,17 @@
                 border-bottom: 1px solid var(--glass-border);
             }
 
-            .nav-links li:last-child { border-bottom: none;
-            }
+            .nav-links li:last-child { border-bottom: none; }
 
-            .nav-links.active li:nth-child(1) { animation-delay: 0.1s;
-            }
-            .nav-links.active li:nth-child(2) { animation-delay: 0.2s;
-            }
-            .nav-links.active li:nth-child(3) { animation-delay: 0.3s;
-            }
-            .nav-links.active li:nth-child(4) { animation-delay: 0.4s;
-            }
-            .nav-links.active li:nth-child(5) { animation-delay: 0.5s;
-            }
-            .nav-links.active li:nth-child(6) { animation-delay: 0.6s;
-            }
-            .nav-links.active li:nth-child(7) { animation-delay: 0.7s;
-            }
-            .nav-links.active li:nth-child(8) { animation-delay: 0.8s;
-            } 
+            .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+            .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+            .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
+            .nav-links.active li:nth-child(7) { animation-delay: 0.7s; }
+            .nav-links.active li:nth-child(8) { animation-delay: 0.8s; } 
+            .nav-links.active li:nth-child(9) { animation-delay: 0.9s; }
 
             .nav-links a {
                 font-size: 0.95rem;
@@ -386,62 +327,39 @@
                 text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
             }
 
-            .menu-toggle { display: block; z-index: 1001;
-            }
+            .menu-toggle { display: block; z-index: 1001; }
             
-            .about-grid, .split-grid { grid-template-columns: 1fr;
-            }
-            /* STACK PROJECTS ON MOBILE */
-            .projects-grid { grid-template-columns: 1fr;
-            } 
-            .hero-text h1 { font-size: 2rem;
-            }
-            .hero-text h2 { font-size: 1.2rem;
-            }
-            .section-title { font-size: 1.5rem;
-            }
-            .about-photo-wrapper { text-align: center; margin-bottom: 1.5rem;
-            }
-            .about-photo { max-width: 320px;
-            } 
-            .glass-card { padding: 1.2rem;
-            }
-            .background-container { background-attachment: scroll;
-            }
+            .about-grid, .split-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; } 
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text h2 { font-size: 1.2rem; }
+            .section-title { font-size: 1.5rem; }
+            .about-photo-wrapper { text-align: center; margin-bottom: 1.5rem; }
+            .about-photo { max-width: 320px; } 
+            .glass-card { padding: 1.2rem; }
+            .background-container { background-attachment: scroll; }
             
-            .pub-meta { flex-direction: column;
-            gap: 8px; }
-            .pub-meta span { display: flex;
-            align-items: flex-start; gap: 10px; text-align: left; line-height: 1.5; }
+            .pub-meta { flex-direction: column; gap: 8px; }
+            .pub-meta span { display: flex; align-items: flex-start; gap: 10px; text-align: left; line-height: 1.5; }
 
-            .cert-item { margin-bottom: 1.5rem;
-            }
-            .cert-item:last-child { margin-bottom: 0;
-            }
+            .cert-item { margin-bottom: 1.5rem; }
+            .cert-item:last-child { margin-bottom: 0; }
         }
         
-        @keyframes fadeSide { to { opacity: 1;
-            transform: translateX(0); } }
+        @keyframes fadeSide { to { opacity: 1; transform: translateX(0); } }
 
         @media (max-width: 480px) {
-            .hero-text h1 { font-size: 1.8rem;
-            }
-            .btn { width: 100%; margin: 5px 0;
-            text-align: center; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .btn { width: 100%; margin: 5px 0; text-align: center; }
             
-            /* --- FOOTER FIX FOR MOBILE --- */
-            .social-icons { 
-                gap: 5px;
-            }
+            .social-icons { gap: 5px; }
             .social-btn {
-                width: 34px;
-                height: 34px; 
+                width: 34px; height: 34px; 
                 font-size: 1rem; 
                 margin: 0 3px; 
             }
             
-            .rating-grid { grid-template-columns: 1fr;
-            }
+            .rating-grid { grid-template-columns: 1fr; }
         }
     </style>
 
@@ -455,14 +373,13 @@
             <a href="#" class="logo">Portfolio</a>
             <ul class="nav-links">
                 <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Work 
-Experience</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">Work Experience</a></li>
                 <li><a href="#education-training" onclick="toggleMenu()">Edu & Training</a></li>
                 <li><a href="#publications" onclick="toggleMenu()">Publications</a></li> 
                 <li><a href="#projects" onclick="toggleMenu()">Projects</a></li> 
                 <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#conferences" onclick="toggleMenu()">Conferences</a></li>
                 <li><a href="#activities" onclick="toggleMenu()">ECS</a></li>
-      
                 <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
             </ul>
             <div class="nav-actions">
@@ -470,16 +387,14 @@ Experience</a></li>
                 <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             </div>
         </div>
-    
-</nav>
+    </nav>
 
     <header id="hero">
         <div class="container">
             <div class="hero-text">
                 <h1>Md Saazid Bin Saif</h1>
                 <h2>Researcher and Trainer- Institute of GIS & Remote Sensing</h2>
-                <p>Researcher & Trainer |
-GIS, Remote Sensing & Spatial Data Analyst | Bridging Technology & Environmental Science</p>
+                <p>Researcher & Trainer | GIS, Remote Sensing & Spatial Data Analyst | Bridging Technology & Environmental Science</p>
                 <a href="#contact" class="btn">Contact Me</a>
             </div>
         </div>
@@ -489,27 +404,20 @@ GIS, Remote Sensing & Spatial Data Analyst | Bridging Technology & Environmental
         <div class="container">
             <div class="glass-card">
                 <div class="about-grid">
- 
-                   <div class="about-photo-wrapper">
+                    <div class="about-photo-wrapper">
                         <img src="./AF-94132.jpg" alt="Md Saazid" class="about-photo" 
                              onerror="this.src='https://via.placeholder.com/300?text=Saazid';">
                     </div>
-  
-                  
                     <div class="about-content">
                        <h3 style="margin-top: 0;">About Me</h3> 
-                        <p>Dedicated Researcher and Trainer specializing in Geographic Information Systems (GIS) 
-and Remote Sensing. With a strong academic foundation in Geography and Environmental Studies, I focus on applying geospatial technologies to solve complex environmental challenges, such as Sea-Level Rise modeling and Land Use change analysis.
-Experienced in leading research teams and bridging the gap between spatial data and environmental policy through advanced analysis.</p>
+                        <p>Dedicated Researcher and Trainer specializing in Geographic Information Systems (GIS) and Remote Sensing. With a strong academic foundation in Geography and Environmental Studies, I focus on applying geospatial technologies to solve complex environmental challenges, such as Sea-Level Rise modeling and Land Use change analysis. Experienced in leading research teams and bridging the gap between spatial data and environmental policy through advanced analysis.</p>
                         
                         <div class="info-list">
                             <div class="info-item"><i class="fas fa-phone"></i> +880 1603012448</div>
- 
                             <div class="info-item"><i class="fas fa-map-marker-alt"></i> Mirzapur, Rajshahi</div>
                             <div class="info-item"><i class="fas fa-envelope"></i> saazidaid@gmail.com</div>
                         </div>
-            
-        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -519,25 +427,20 @@ Experienced in leading research teams and bridging the gap between spatial data 
         <div class="container">
             <h2 class="section-title">Work Experience</h2>
             <div class="glass-card">
-           
-     <div class="exp-item">
+                <div class="exp-item">
                     <h3>Researcher and Trainer</h3>
                     <h4>Institute of GIS & Remote Sensing</h4>
                     <div class="exp-date">June 2025 - Present</div>
                 </div>
-       
-
                 <div class="exp-item">
                     <h3>Researcher</h3>
                     <h4>Bangladesh Green Environment Research Centre (BGERC)</h4>
                     <div class="exp-date">March 23, 2025 - Present</div>
-             
-       <ul>
+                    <ul>
                         <li>Head of the research group team.</li>
                         <li>Specialized in Geographic Information System & Remote Sensing.</li>
                     </ul>
-             
-   </div>
+                </div>
             </div>
         </div>
     </section>
@@ -546,60 +449,49 @@ Experienced in leading research teams and bridging the gap between spatial data 
         <div class="container">
             <div class="split-grid">
                 <div class="glass-card">
-                    <h2 class="section-title" style="font-size: 1.5rem;
-text-align: left;"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-graduation-cap"></i> Education</h2>
                     <div class="list-item">
                         <h3>Bachelor of Science (Geography & Environmental Studies)</h3>
                         <h4>University of Rajshahi</h4>
-                   
-     <p>2023 - Present</p>
+                        <p>2023 - Present</p>
                     </div>
                     <div class="list-item">
                         <h3>H.S.C (Science)</h3>
-                        <h4>BCIC College, Mirpur, 
-Dhaka</h4>
+                        <h4>BCIC College, Mirpur, Dhaka</h4>
                         <p>Session: 2020-21 | Result: 5.00</p>
                     </div>
                     <div class="list-item">
                         <h3>S.S.C (Science)</h3>
-      
-                   <h4>Monipur Uchcha Vidyalaya and College</h4>
+                        <h4>Monipur Uchcha Vidyalaya and College</h4>
                         <p>Session: 2019-20 | Result: 5.00</p>
                     </div>
                 </div>
 
-              
-   <div class="glass-card">
-                    <h2 class="section-title" style="font-size: 1.5rem;
-text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
+                <div class="glass-card">
+                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
                     <div class="list-item">
                         <h3>Professional training on GIS Basic to Advance</h3>
                         <h4>Bangladesh Green Environmental Research Centre</h4>
-                 
-       <p>March 1, 2024 to Present</p>
+                        <p>March 1, 2024 to Present</p>
                     </div>
                     <div class="list-item">
                         <h3>Workshop on "Careers on Climate Change"</h3>
-                   
-     <h4>Organized By: Bangladesh Youth Climate School</h4>
+                        <h4>Organized By: Bangladesh Youth Climate School</h4>
                         <p>Collaborator: Brighters</p>
                     </div>
                     <div class="list-item">
-                        
-<h3>Awareness Rally to Prevent Lead Pollution</h3>
+                        <h3>Awareness Rally to Prevent Lead Pollution</h3>
                         <h4>Organized By: YouthNet Bangladesh</h4>
                         <p>Collaborator: UNICEF, Bangladesh</p>
                     </div>
                 </div>
-      
-       </div>
+            </div>
         </div>
     </section>
 
     <section id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
-            <!-- First Publication Card -->
             <div class="glass-card" style="margin-bottom: 1.5rem;">
                 <div class="list-item" style="border-bottom: none;">
                     <h3 style="line-height: 1.4; font-size: 1.15rem;">Modeling Relative Sea-Level Rise through Geodetic-Hydrodynamic Fusion: Quantifying Multi-Sectoral Risks in the Bengal Delta</h3>
@@ -617,7 +509,6 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
                 </div>
             </div>
 
-            <!-- Second Publication Card (New) -->
             <div class="glass-card">
                 <div class="list-item" style="border-bottom: none;">
                     <h3 style="line-height: 1.4; font-size: 1.15rem;">Temporal analysis of land use and land cover changes: A study of Kurigram Sadar Upazila, Bangladesh</h3>
@@ -637,15 +528,14 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
         </div>
     </section>
 
-    
-<section id="projects">
+    <section id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 
                 <div class="project-card">
                     <img src="./Map Digitization.png" alt="Map Digitization" class="project-img" 
-                     onerror="this.src='https://via.placeholder.com/400x200?text=Map+Digitization';">
+                         onerror="this.src='https://via.placeholder.com/400x200?text=Map+Digitization';">
                     <div class="project-content">
                         <h3>Map Digitization</h3>
                         <p>Successfully converted hardcopy analog maps into digital vector formats using GIS software, ensuring spatial accuracy and data preservation for future analysis.</p>
@@ -654,16 +544,16 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
 
                 <div class="project-card">
                     <img src="./Map Interpolation.jpg" alt="Map Interpolation" class="project-img" 
-                        onerror="this.src='https://via.placeholder.com/400x200?text=Map+Interpolation';">
+                         onerror="this.src='https://via.placeholder.com/400x200?text=Map+Interpolation';">
                      <div class="project-content">
                         <h3>Map Interpolation</h3>
                         <p>Applied advanced spatial interpolation techniques (IDW/Kriging) to predict unknown values for specific locations based on sample data points.</p>
-                     </div>
+                    </div>
                 </div>
 
                 <div class="project-card">
                     <img src="./Land Use Land Cover.png" alt="Land Use Land Cover" class="project-img" 
-                        onerror="this.src='https://via.placeholder.com/400x200?text=LULC';">
+                         onerror="this.src='https://via.placeholder.com/400x200?text=LULC';">
                    <div class="project-content">
                         <h3>Land Use Land Cover</h3>
                         <p>Analyzed satellite imagery to classify land surface features, monitoring changes in vegetation, water bodies, and urbanization trends over time.</p>
@@ -673,7 +563,7 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
                 <div class="project-card">
                     <img src="./Normilize Indexing.png" alt="Normalized Indexing" class="project-img" 
                         onerror="this.src='https://via.placeholder.com/400x200?text=Indexing';">
-                   <div class="project-content">
+                    <div class="project-content">
                         <h3>Normalized Indexing</h3>
                         <p>Calculated spectral indices such as NDVI and NDWI from remote sensing data to assess vegetation health and water content for environmental monitoring.</p>
                     </div>
@@ -687,8 +577,7 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
                         <p>Processed thermal imagery to calculate Land Surface Temperature, assessing heat distribution and climatic trends for environmental monitoring.</p>
                     </div>
                 </div>
-            
-</div>
+            </div>
         </div>
     </section>
 
@@ -698,43 +587,79 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
             <div class="skills-grid">
                 <div class="glass-card">
                     <h3>GIS & Remote Sensing</h3>
-       
-             <ul class="skill-list">
+                    <ul class="skill-list">
                         <li>ArcGIS 10.8</li>
                         <li>ArcGIS Pro</li>
                         <li>Google Earth Pro</li>
-          
-               <li>Google Earth Engine</li>
+                        <li>Google Earth Engine</li>
                         <li>ENVI</li>
                         <li>QGIS</li>
                         <li>Agisoft Metasoft</li>
-           
-         </ul>
+                    </ul>
                 </div>
 
                 <div class="glass-card">
                     <h3>Data Analysis</h3>
                     <ul class="skill-list">
-                
-         <li>Python for Data Analysis</li>
+                        <li>Python for Data Analysis</li>
                         <li>SPSS</li>
                         <li>R Language</li>
                     </ul>
                 </div>
 
-    
-             <div class="glass-card">
+                <div class="glass-card">
                     <h3>Other Skills</h3> 
                     <ul class="skill-list">
                         <li>Microsoft Word</li>
-                   
-     <li>Microsoft Powerpoint</li>
+                        <li>Microsoft Powerpoint</li>
                         <li>Microsoft Excel</li>
                         <li>Basic Graphics Design</li>
                         <li>Basic Video Editing</li>
-                 
-   </ul>
+                    </ul>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conferences">
+        <div class="container">
+            <h2 class="section-title">Conferences</h2>
+            <div class="glass-card">
+
+
+                <div class="list-item">
+                    <h3 style="margin-bottom: 0.3rem;">International Conference on Climate Extremes, Disasters, Anticipatory Actions and Human Health (CEDAAH 2026)</h3>
+                    <p><strong>Organizing Institution:</strong> Bangladesh University of Engineering and Technology | Institute of Water and Flood Management - IWFM</p>
+                    <p><strong>Location:</strong> Dhaka, Bangladesh</p>
+                    <p><strong>Role:</strong> Poster Presenter </p>
+                    <p><strong>Date:</strong> 8-9 April, 2026</p>
+                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                        <a href="https://drive.google.com/file/d/1LnM7rJzfAUnjDHcWGN6V_vWi6P0nz18F/view?usp=sharing" target="_blank">View Abstract <i class="fas fa-external-link-alt"></i></a>
+                        <a href="YOUR_CERTIFICATE_LINK_HERE" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <h3 style="margin-bottom: 0.3rem;">International Conference on Geoscinces for Achieving Sustainable Development Goals (ICGSDG)</h3>
+                    <p><strong>Organizing Institution:</strong> University of Rajshahi | Faculty of Geoscience</p>
+                    <p><strong>Location:</strong> Rajshahi, Bangladesh</p>
+                    <p><strong>Role:</strong> Oral Presenter</p>
+                    <p><strong>Date:</strong> 14-15 March, 2025</p>
+                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                        <a href="https://drive.google.com/file/d/1e9d4HG9Sgh71DqVB4BMAW8Feq9sK8oXI/view?usp=drive_link" target="_blank">View Abstract <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://drive.google.com/file/d/1bAUT_iutWPDVi64azPKzfmQN8TKJ-kid/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="list-item">
+                    <h3 style="margin-bottom: 0.3rem;">International Student Conference and Research Fair</h3>
+                    <p><strong>Organizing Institution:</strong> Rajshahi University Research Society- RURS | University of Rajshahi</p>
+                    <p><strong>Location:</strong> Rajshahi, Bangladesh</p>
+                    <p><strong>Role:</strong> Listener </p>
+                    <p><strong>Date:</strong> 22-23 February, 2025</p>
+                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                        <a href="https://drive.google.com/file/d/1O3Q5fbj85Y9Wx0o_2vF6BsSB4WokQ0xy/view?usp=sharing" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                 </div>
             </div>
         </div>
     </section>
@@ -743,26 +668,21 @@ text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
         <div class="container">
             <h2 class="section-title">ECS</h2>
             <div class="glass-card">
-                
-<div class="list-item">
+                <div class="list-item">
                     <h4>Active Participant of Workshop on "Careers on Climate Change"</h4>
-                    <p>Bangladesh Youth Climate School |
-23 December, 2023</p>
+                    <p>Bangladesh Youth Climate School | 23 December, 2023</p>
                 </div>
                 <div class="list-item">
                     <h4>Deputy Head of Event & Logistics</h4>
                     <p>Rajshahi University Entrepreneur Association (RUEA)</p>
-                
-</div>
+                </div>
                 <div class="list-item">
                     <h4>Volunteer</h4>
                     <p>Save Climate Movement, Rajshahi</p>
                 </div>
                 <div class="list-item">
-       
-             <h4>Youth Mappers Bangladesh Summit 2023</h4>
-                    <p>Collaborator: Eastern University |
-Dec 08, 2023</p>
+                    <h4>Youth Mappers Bangladesh Summit 2023</h4>
+                    <p>Collaborator: Eastern University | Dec 08, 2023</p>
                 </div>
             </div>
         </div>
@@ -773,64 +693,51 @@ Dec 08, 2023</p>
             <h2 class="section-title">Certifications</h2>
             <div class="glass-card">
                 <div class="cert-item">
- 
-                   <div>
+                    <div>
                         <h3>Machine Learning with Python</h3>
-                        <p>Lead Academy (Endorsed by UN Global Compact) |
-Feb 2025</p>
+                        <p>Lead Academy (Endorsed by UN Global Compact) | Feb 2025</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
-                        <h3>Fundamental GIS 
-Course</h3>
-                        <p>Bangladesh Green Environmental Research Center |
-ID: BGERC-05008</p>
+                        <h3>Fundamental GIS Course</h3>
+                        <p>Bangladesh Green Environmental Research Center | ID: BGERC-05008</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
                         <h3>Basic to Advanced Training on Google Earth Engine</h3>
-                        <p>ResGeo Lab |
-22 February, 2026</p>
+                        <p>ResGeo Lab | 22 February, 2026</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
-                        <h3>Application of 
-Drone Data Aquisition & Processing</h3>
-                        <p>Bangladesh Green Environmental Research Center |
-ID: B-D2-105-2025</p>
+                        <h3>Application of Drone Data Acquisition & Processing</h3>
+                        <p>Bangladesh Green Environmental Research Center | ID: B-D2-105-2025</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
                         <h3>Basic to Advanced Training on ArcGIS Pro</h3>
-                        <p>ResGeo Lab |
-21 February, 2026</p>
+                        <p>ResGeo Lab | 21 February, 2026</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
-                        <h3>Complete Remote 
-Sensing Image Analysis with ENVI Software</h3>
-                        <p>Udemy |
-January 2026</p> 
+                        <h3>Complete Remote Sensing Image Analysis with ENVI Software</h3>
+                        <p>Udemy | January 2026</p>
                     </div>
                 </div>
                 <div class="cert-item">
                     <div>
-                        <h3>ArcPy 
-for ArcMap Level 1</h3>
+                        <h3>ArcPy for ArcMap Level 1</h3>
                         <p>Udemy: Python Programming for ArcGIS</p>
                     </div>
                 </div>
                 <div class="cert-item">
-                
-    <div>
+                    <div>
                         <h3>The Impact of Space Flight on the Environment</h3>
-                        <p>Alison |
-September 2024</p>
+                        <p>Alison | September 2024</p>
                     </div>
                 </div>
             </div>
@@ -840,20 +747,16 @@ September 2024</p>
     <footer id="contact">
         <div class="container">
             <h2 style="margin-bottom: 2rem;">Connect With Me</h2>
-         
-   <div class="social-icons">
+            <div class="social-icons">
                 <a href="https://www.facebook.com/Saazid24" class="social-btn"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.linkedin.com/in/saazid/" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.youtube.com/channel/UCh7rxk-zls5ahpsBchpMtYw" class="social-btn"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.instagram.com/nameless_person2004/" class="social-btn"><i class="fab fa-instagram"></i></a>
-                
-<a href="https://scholar.google.com/citations?user=1ZUcngUAAAAJ&hl=en" class="social-btn"><i class="ai ai-google-scholar"></i></a>
+                <a href="https://scholar.google.com/citations?user=1ZUcngUAAAAJ&hl=en" class="social-btn"><i class="ai ai-google-scholar"></i></a>
                 <a href="https://orcid.org/0009-0005-2538-1828" class="social-btn"><i class="ai ai-orcid"></i></a>
-                <!-- New ResearchGate link added below (keeps one line / mobile friendly) -->
                 <a href="https://www.researchgate.net/profile/Md-Saazid-Bin-Saif" class="social-btn"><i class="ai ai-researchgate"></i></a>
             </div>
-            <p>&copy;
-2026 Md Saazid Bin Saif. All rights reserved.</p>
+            <p>&copy; 2026 Md Saazid Bin Saif. All rights reserved.</p>
         </div>
     </footer>
 
@@ -861,28 +764,28 @@ September 2024</p>
         // Toggle Mobile Menu
         function toggleMenu() {
             const nav = document.querySelector('.nav-links');
-const toggleIcon = document.querySelector('.menu-toggle i');
+            const toggleIcon = document.querySelector('.menu-toggle i');
             
             nav.classList.toggle('active');
 
             // Switch Icon Class (Bars <-> X)
             if(nav.classList.contains('active')) {
                 toggleIcon.classList.remove('fa-bars');
-toggleIcon.classList.add('fa-xmark'); 
+                toggleIcon.classList.add('fa-xmark'); 
             } else {
                 toggleIcon.classList.remove('fa-xmark');
-toggleIcon.classList.add('fa-bars');
+                toggleIcon.classList.add('fa-bars');
             }
         }
 
         // Theme Toggle
         const themeBtn = document.getElementById('theme-toggle');
-const icon = themeBtn.querySelector('i');
+        const icon = themeBtn.querySelector('i');
         const body = document.body;
 
         if(localStorage.getItem('theme') === 'light'){
             body.classList.add('light-mode');
-icon.classList.replace('fa-moon', 'fa-sun');
+            icon.classList.replace('fa-moon', 'fa-sun');
         }
 
         themeBtn.addEventListener('click', () => {
@@ -891,11 +794,10 @@ icon.classList.replace('fa-moon', 'fa-sun');
                 icon.classList.replace('fa-moon', 'fa-sun');
                 localStorage.setItem('theme', 'light');
             } else {
-               
- icon.classList.replace('fa-sun', 'fa-moon');
+                icon.classList.replace('fa-sun', 'fa-moon');
                 localStorage.setItem('theme', 'dark');
             }
         });
-</script>
+    </script>
 </body>
 </html>
