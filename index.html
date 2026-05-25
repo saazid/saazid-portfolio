@@ -4,37 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md Saazid Bin Saif | GIS & RS Enthusiast</title>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
     <style>
-        /* --- CSS VARIABLES --- */
+        /* ============================================================
+           CSS VARIABLES — dark / light theme tokens
+           ============================================================ */
         :root {
-            --bg-overlay: rgba(0, 0, 0, 0.85);
-            --text-color: #f1f5f9;
-            --text-muted: #cbd5e1;
-            --primary-color: #22d3ee; /* Cyan */
-            --secondary-color: #60a5fa; /* Blue */
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-            --nav-bg: rgba(15, 23, 42, 0.98);
+            --bg-overlay:      rgba(0, 0, 0, 0.85);
+            --text-color:      #f1f5f9;
+            --text-muted:      #cbd5e1;
+            --primary-color:   #22d3ee;
+            --secondary-color: #60a5fa;
+            --glass-bg:        rgba(255, 255, 255, 0.03);
+            --glass-border:    rgba(255, 255, 255, 0.08);
+            --glass-shadow:    0 4px 30px rgba(0, 0, 0, 0.5);
+            --nav-bg:          rgba(15, 23, 42, 0.98);
         }
 
         body.light-mode {
-            --bg-overlay: rgba(255, 255, 255, 0.85);
-            --text-color: #0f172a;
-            --text-muted: #334155;
-            --primary-color: #0891b2;
+            --bg-overlay:      rgba(255, 255, 255, 0.85);
+            --text-color:      #0f172a;
+            --text-muted:      #334155;
+            --primary-color:   #0891b2;
             --secondary-color: #2563eb;
-            --glass-bg: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(0, 0, 0, 0.1);
-            --nav-bg: rgba(255, 255, 255, 0.95);
+            --glass-bg:        rgba(255, 255, 255, 0.6);
+            --glass-border:    rgba(0, 0, 0, 0.1);
+            --nav-bg:          rgba(255, 255, 255, 0.95);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
+        /* ============================================================
+           RESET & BASE
+           (transition: all removed from * to avoid conflicting with
+            scroll-reveal and keyframe animations)
+           ============================================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; font-size: 15px; }
 
         body {
@@ -43,13 +50,17 @@
             min-height: 100vh;
             overflow-x: hidden;
             line-height: 1.5;
+            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        /* --- BACKGROUND SETUP --- */
+        /* ============================================================
+           BACKGROUND
+           ============================================================ */
         .background-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
+            /* ── FILE PATH ── Replace with your hero / background image path */
             background-image: url('./Saazid12.jpg');
             background-position: center top;
             background-size: cover;
@@ -64,9 +75,12 @@
             background: var(--bg-overlay);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            transition: background 0.3s ease;
         }
 
-        /* --- UTILITIES --- */
+        /* ============================================================
+           UTILITIES
+           ============================================================ */
         .container {
             max-width: 1150px;
             margin: 0 auto;
@@ -83,30 +97,75 @@
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
         }
+        /* No underline decoration on section titles */
+        .section-title::after { display: none; }
 
-        h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.5rem; }
-        h4 { font-size: 1.1rem; color: var(--text-color); font-weight: 600; margin-bottom: 0.2rem; }
-        p, li { font-size: 0.95rem; color: var(--text-muted); }
+        h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 0.5rem; transition: color 0.3s ease; }
+        h4 { font-size: 1.1rem; color: var(--text-color); font-weight: 600; margin-bottom: 0.2rem; transition: color 0.3s ease; }
+        p, li { font-size: 0.95rem; color: var(--text-muted); transition: color 0.3s ease; }
 
-        /* --- NAVIGATION --- */
+        /* ============================================================
+           NAVIGATION
+           ============================================================ */
         nav {
             position: fixed;
             top: 0; width: 100%; padding: 0.6rem 0; z-index: 1000;
-            background: var(--nav-bg); border-bottom: 1px solid var(--glass-border);
+            background: var(--nav-bg);
+            border-bottom: 1px solid var(--glass-border);
+            transition: padding 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+        nav.scrolled {
+            padding: 0.3rem 0;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
         }
         nav .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
-        
-        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
-        .nav-links a { color: var(--text-color); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
-        .nav-links a:hover { color: var(--primary-color); }
-        
-        .nav-actions { display: flex; align-items: center; gap: 15px; }
-        .menu-toggle { display: none; cursor: pointer; color: var(--text-color); font-size: 1.5rem; transition: transform 0.3s ease; }
-        #theme-toggle { background: none; border: none; color: var(--text-color); cursor: pointer; font-size: 1.1rem; }
 
-        /* --- SECTIONS --- */
+        .logo {
+            font-size: 1.2rem; font-weight: 700;
+            color: var(--primary-color); text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links { display: flex; list-style: none; gap: 1.2rem; }
+        .nav-links a {
+            color: var(--text-color); text-decoration: none;
+            font-size: 0.9rem; font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        /* Underline indicator on nav links */
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 2px;
+            background: var(--primary-color);
+            border-radius: 1px;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover,
+        .nav-links a.active       { color: var(--primary-color); }
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .menu-toggle {
+            display: none; cursor: pointer;
+            color: var(--text-color); font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        #theme-toggle {
+            background: none; border: none;
+            color: var(--text-color); cursor: pointer; font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        #theme-toggle:hover { transform: rotate(20deg); }
+
+        /* ============================================================
+           SECTIONS
+           ============================================================ */
         section { padding: 35px 0; }
 
         .glass-card {
@@ -118,74 +177,208 @@
             border: 1px solid var(--glass-border);
             padding: 1.5rem;
             height: 100%;
+            transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
-        .glass-card:hover { transform: translateY(-3px); border-color: var(--primary-color); }
+        .glass-card:hover { transform: translateY(-4px); border-color: var(--primary-color); box-shadow: 0 8px 40px rgba(34, 211, 238, 0.1); }
 
-        /* --- HERO --- */
+        /* ============================================================
+           KEYFRAME ANIMATIONS
+           ============================================================ */
+
+        /* Hero text entrance */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(45px); }
+            to   { opacity: 1; transform: translateY(0);    }
+        }
+
+        /* Floating orb drift */
+        @keyframes drift {
+            0%   { transform: translate(0px,   0px)   scale(1);    }
+            25%  { transform: translate(20px, -30px)  scale(1.06); }
+            50%  { transform: translate(-15px,  18px) scale(0.96); }
+            75%  { transform: translate(25px,   8px)  scale(1.04); }
+            100% { transform: translate(0px,   0px)   scale(1);    }
+        }
+
+        /* Contact button glow pulse */
+        @keyframes pulseGlow {
+            0%,100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+            50%      { box-shadow: 0 0 22px 8px rgba(34, 211, 238, 0.18); }
+        }
+
+        /* Typewriter cursor blink */
+        @keyframes blink {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0; }
+        }
+
+        /* Profile photo gentle float */
+        @keyframes photoFloat {
+            0%,100% { transform: translateY(0);    }
+            50%      { transform: translateY(-10px); }
+        }
+
+        /* Timeline dot pulse */
+        @keyframes dotPulse {
+            0%,100% { box-shadow: 0 0 0 0   rgba(34, 211, 238, 0.6); }
+            50%      { box-shadow: 0 0 0 7px rgba(34, 211, 238, 0);   }
+        }
+
+        /* Mobile menu item slide */
+        @keyframes fadeSide {
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ============================================================
+           SCROLL REVEAL  (class added by JS)
+           ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.from-left  { transform: translateX(-32px); }
+        .reveal.from-right { transform: translateX(32px);  }
+        .reveal.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+
+        /* ============================================================
+           HERO
+           ============================================================ */
         #hero {
             min-height: 80vh;
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            padding-top: 60px;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding-top: 60px;
+            position: relative; overflow: hidden;
         }
-        .hero-text h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem; }
-        .hero-text span { color: var(--primary-color); }
-        .hero-text h2 { font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem; }
-        .hero-text p { max-width: 700px; margin: 0 auto 1.5rem auto; font-size: 1rem; }
+        #hero .container { position: relative; z-index: 1; }
+
+        /* Floating colour orbs behind hero */
+        .hero-orbs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+        .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(72px); opacity: 0.09;
+            animation: drift ease-in-out infinite;
+        }
+        .orb-1 { width: 380px; height: 380px; background: var(--primary-color);  top: -8%;  left: -6%;  animation-duration: 14s; }
+        .orb-2 { width: 260px; height: 260px; background: var(--secondary-color); top: 38%;  right: -4%; animation-duration: 19s; animation-delay: -7s;  }
+        .orb-3 { width: 220px; height: 220px; background: #818cf8;               bottom: 2%; left: 42%;  animation-duration: 16s; animation-delay: -4s;  }
+        .orb-4 { width: 190px; height: 190px; background: var(--primary-color);  top: 22%;  right: 26%; animation-duration: 22s; animation-delay: -11s; }
+
+        /* Staggered hero text entrance */
+        .hero-text h1    { font-size: 3rem; line-height: 1.1; margin-bottom: 0.5rem;
+                           animation: heroFadeUp 0.85s cubic-bezier(0.25,0.46,0.45,0.94) 0.1s  both; }
+        .hero-text h2    { font-size: 1.4rem; color: var(--secondary-color); margin-bottom: 1rem; min-height: 1.8em;
+                           animation: heroFadeUp 0.85s cubic-bezier(0.25,0.46,0.45,0.94) 0.35s both; }
+        .hero-text p     { max-width: 700px; margin: 0 auto 1.5rem auto; font-size: 1rem;
+                           animation: heroFadeUp 0.85s cubic-bezier(0.25,0.46,0.45,0.94) 0.6s  both; }
+        .hero-text .btn-wrap { animation: heroFadeUp 0.85s cubic-bezier(0.25,0.46,0.45,0.94) 0.85s both; display: inline-block; }
+
+        /* Typewriter cursor */
+        .cursor {
+            display: inline-block;
+            width: 2px; height: 1em;
+            background: var(--secondary-color);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 0.75s step-end infinite;
+        }
+
+        /* Contact button */
         .btn {
             display: inline-block;
             padding: 8px 25px; margin: 5px;
             border: 1px solid var(--primary-color); color: var(--primary-color);
             text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulseGlow 2.6s ease-in-out 1.8s infinite;
         }
-        .btn:hover { background: var(--primary-color); color: #000; }
+        .btn:hover {
+            background: var(--primary-color); color: #000;
+            transform: translateY(-2px);
+            animation: none;
+        }
 
-        /* --- ABOUT & PROFILE --- */
+        /* ============================================================
+           ABOUT
+           ============================================================ */
         .about-grid {
             display: grid;
             grid-template-columns: 280px 1fr; gap: 2rem; align-items: start;
         }
         .about-photo {
-            width: 100%;
-            height: auto; object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid var(--glass-border);
-            padding: 10px;
-            background: rgba(255,255,255,0.05);
+            width: 100%; height: auto; object-fit: cover;
+            border-radius: 8px; border: 1px solid var(--glass-border);
+            padding: 10px; background: rgba(255,255,255,0.05);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: photoFloat 4s ease-in-out infinite;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
         }
+        .info-list { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+        .info-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; transition: color 0.3s ease; }
+        .info-item i { color: var(--primary-color); width: 20px; text-align: center; transition: color 0.3s ease; }
 
-        .info-list { 
-            display: flex;
-            flex-direction: column; 
-            gap: 0.8rem;
-            margin-top: 1rem;
+        /* ============================================================
+           EXPERIENCE
+           ============================================================ */
+        .exp-item {
+            border-left: 2px solid var(--primary-color);
+            padding-left: 1rem; margin-bottom: 1rem;
+            position: relative;
+            transition: border-color 0.3s ease;
         }
-        .info-item { display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
-        .info-item i { color: var(--primary-color); width: 20px; text-align: center; }
+        /* Animated timeline dot */
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -7px; top: 7px;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            animation: dotPulse 2s ease-in-out infinite;
+            transition: background 0.3s ease;
+        }
+        .exp-date { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600; transition: color 0.3s ease; }
+        .exp-course { font-size: 0.88rem; color: var(--text-muted); margin: 0.15rem 0 0.1rem; transition: color 0.3s ease; }
 
-        /* --- EXPERIENCE --- */
-        .exp-item { border-left: 2px solid var(--primary-color); padding-left: 1rem; margin-bottom: 1rem; }
-        .exp-date { font-size: 0.85rem; color: var(--secondary-color); font-weight: 600; }
-
-        /* --- SPLIT GRIDS --- */
+        /* ============================================================
+           SPLIT & LIST GRIDS
+           ============================================================ */
         .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .list-item { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); }
+        .list-item {
+            margin-bottom: 1rem; padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            transition: border-color 0.3s ease;
+        }
         .list-item:last-child { border-bottom: none; margin-bottom: 0; }
-        
-        /* --- PUBLICATIONS --- */
+
+        /* ============================================================
+           PUBLICATIONS
+           ============================================================ */
         .pub-meta {
-            display: flex;
-            flex-wrap: wrap; gap: 15px; margin-bottom: 10px; font-size: 0.9rem; color: var(--secondary-color);
+            display: flex; flex-wrap: wrap; gap: 15px;
+            margin-bottom: 10px; font-size: 0.9rem; color: var(--secondary-color);
+            transition: color 0.3s ease;
         }
         .pub-meta span { display: flex; align-items: center; gap: 6px; }
         .pub-abstract {
-            font-size: 0.9rem;
-            margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+            font-size: 0.9rem; margin-bottom: 1rem;
+            display: -webkit-box; -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical; overflow: hidden;
         }
-        .pub-links a { color: var(--primary-color); font-size: 0.85rem; text-decoration: none; font-weight: 600; }
+        .pub-links a {
+            color: var(--primary-color); font-size: 0.85rem;
+            text-decoration: none; font-weight: 600;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
         .pub-links a:hover { text-decoration: underline; }
 
-        /* --- PROJECTS --- */
+        /* ============================================================
+           PROJECTS
+           ============================================================ */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -197,107 +390,107 @@
             border: 1px solid var(--glass-border);
             overflow: hidden;
             height: 100%;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             padding: 0;
+            transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
         }
-        .project-card:hover { transform: translateY(-3px); border-color: var(--primary-color); }
-        
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 35px rgba(34, 211, 238, 0.12);
+        }
         .project-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
+            width: 100%; height: 180px; object-fit: cover;
             border-bottom: 1px solid var(--glass-border);
+            transition: transform 0.5s ease;
         }
-        .project-content {
-            padding: 1.2rem;
-            flex-grow: 1;
-        }
-        .project-content h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.5rem;
-        }
+        /* Image zoom on card hover */
+        .project-card:hover .project-img { transform: scale(1.08); }
 
-        /* --- SKILLS --- */
+        .project-content { padding: 1.2rem; flex-grow: 1; }
+        .project-content h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+        /* ============================================================
+           SKILLS  (items animated in by JS)
+           ============================================================ */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
         .skill-list { list-style: none; padding-left: 0; }
-        .skill-list li { margin-bottom: 0.4rem; display: flex; align-items: center; gap: 8px; }
-        .skill-list li::before { content: '•'; color: var(--primary-color); font-weight: bold; }
-        .rating-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.85rem; }
-        .rating-item { display: flex; justify-content: space-between; background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; }
-
-        /* --- ACTIVITIES & CERTIFICATIONS --- */
-        .activity-grid, .cert-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-        
-        .cert-item { display: flex; gap: 1rem; align-items: start; margin-bottom: 1.5rem; }
-        .cert-item:last-child { margin-bottom: 0; }
-        .cert-item h3 { margin-bottom: 0.1rem; }
-        
-        .cert-icon { font-size: 1.5rem; color: var(--secondary-color); margin-top: 5px; flex-shrink: 0; }
-
-        /* --- FOOTER --- */
-        footer { background: var(--nav-bg); padding: 2rem 0; text-align: center; border-top: 1px solid var(--glass-border); }
-        .social-icons { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .social-btn {
-            display: inline-flex;
-            width: 40px; height: 40px; border-radius: 50%;
-            background: var(--glass-bg); color: var(--text-color); align-items: center; justify-content: center;
-            margin: 0 5px; text-decoration: none;
-            border: 1px solid var(--glass-border);
-            font-size: 1.2rem;
+        .skill-list li {
+            margin-bottom: 0.4rem;
+            display: flex; align-items: center; gap: 8px;
+            transition: opacity 0.4s ease, transform 0.4s ease, color 0.3s ease;
         }
-        .social-btn:hover { background: var(--primary-color); color: #000; transform: translateY(-3px); }
+        .skill-list li::before { content: '•'; color: var(--primary-color); font-weight: bold; transition: color 0.3s ease; }
 
-        /* --- RESPONSIVE MEDIA QUERIES --- */
+        /* ============================================================
+           FOOTER / CONTACT
+           ============================================================ */
+        footer {
+            background: var(--nav-bg); padding: 2rem 0;
+            text-align: center; border-top: 1px solid var(--glass-border);
+            transition: background 0.3s ease;
+        }
+        .social-icons {
+            display: flex; justify-content: center;
+            gap: 0.8rem; margin-bottom: 1rem; flex-wrap: wrap;
+        }
+        .social-btn {
+            display: inline-flex; width: 40px; height: 40px; border-radius: 50%;
+            background: var(--glass-bg); color: var(--text-color);
+            align-items: center; justify-content: center;
+            margin: 0 5px; text-decoration: none;
+            border: 1px solid var(--glass-border); font-size: 1.2rem;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .social-btn:hover {
+            background: var(--primary-color); color: #000;
+            transform: translateY(-6px) rotate(8deg);
+            box-shadow: 0 8px 22px rgba(34, 211, 238, 0.35);
+        }
+
+        /* ============================================================
+           RESPONSIVE — tablet (≤992px)
+           ============================================================ */
         @media (max-width: 992px) {
             .hero-text h1 { font-size: 2.5rem; }
             .section-title { font-size: 1.8rem; }
-             .projects-grid { 
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (min-width: 1024px) {
-             .projects-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* --- MOBILE MENU --- */
+        @media (min-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(5, 1fr); }
+        }
+
+        /* ============================================================
+           RESPONSIVE — mobile menu (≤768px)
+           ============================================================ */
         @media (max-width: 768px) {
+            /* Hide orbs on mobile for performance */
+            .hero-orbs { display: none; }
+
             .nav-links {
                 position: fixed;
-                top: 0;
-                right: -55%; 
-                width: 50%;
-                max-width: 250px;
-                height: 100vh;
+                top: 0; right: -55%;
+                width: 50%; max-width: 250px; height: 100vh;
                 background: var(--nav-bg);
                 flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                padding-top: 70px;
-                padding-left: 0; 
+                justify-content: flex-start; align-items: flex-start;
+                padding-top: 70px; padding-left: 0;
                 transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                backdrop-filter: blur(15px);
-                -webkit-backdrop-filter: blur(15px);
+                backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
                 z-index: 999;
                 border-left: 1px solid var(--glass-border);
                 box-shadow: -5px 0 30px rgba(0,0,0,0.5);
-                gap: 0; 
+                gap: 0;
             }
-            
             .nav-links.active { right: 0; }
 
             .nav-links li {
-                margin: 0;
-                width: 100%;
-                opacity: 0;
-                transform: translateX(20px);
+                margin: 0; width: 100%;
+                opacity: 0; transform: translateX(20px);
                 animation: fadeSide 0.5s forwards;
                 border-bottom: 1px solid var(--glass-border);
             }
-
             .nav-links li:last-child { border-bottom: none; }
 
             .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
@@ -307,80 +500,80 @@
             .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
             .nav-links.active li:nth-child(6) { animation-delay: 0.6s; }
             .nav-links.active li:nth-child(7) { animation-delay: 0.7s; }
-            .nav-links.active li:nth-child(8) { animation-delay: 0.8s; } 
+            .nav-links.active li:nth-child(8) { animation-delay: 0.8s; }
             .nav-links.active li:nth-child(9) { animation-delay: 0.9s; }
 
             .nav-links a {
-                font-size: 0.95rem;
-                font-weight: 500;
-                padding: 10px 25px; 
-                display: block;
-                transition: all 0.3s ease;
-                text-align: left;
+                font-size: 0.95rem; font-weight: 500;
+                padding: 10px 25px; display: block;
+                transition: all 0.3s ease; text-align: left;
             }
-
             .nav-links a:hover {
                 background: rgba(34, 211, 238, 0.1);
                 color: var(--primary-color);
-                padding-left: 35px; 
-                box-shadow: inset 4px 0 0 var(--primary-color); 
+                padding-left: 35px;
+                box-shadow: inset 4px 0 0 var(--primary-color);
                 text-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
             }
+            /* Hide the ::after underline on mobile nav links */
+            .nav-links a::after { display: none; }
 
             .menu-toggle { display: block; z-index: 1001; }
-            
-            .about-grid, .split-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; } 
+
+            .about-grid,
+            .split-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+
             .hero-text h1 { font-size: 2rem; }
             .hero-text h2 { font-size: 1.2rem; }
             .section-title { font-size: 1.5rem; }
+
             .about-photo-wrapper { text-align: center; margin-bottom: 1.5rem; }
-            .about-photo { max-width: 320px; } 
+            .about-photo { max-width: 320px; }
             .glass-card { padding: 1.2rem; }
             .background-container { background-attachment: scroll; }
-            
+
             .pub-meta { flex-direction: column; gap: 8px; }
             .pub-meta span { display: flex; align-items: flex-start; gap: 10px; text-align: left; line-height: 1.5; }
-
-            .cert-item { margin-bottom: 1.5rem; }
-            .cert-item:last-child { margin-bottom: 0; }
         }
-        
-        @keyframes fadeSide { to { opacity: 1; transform: translateX(0); } }
 
+        /* ============================================================
+           RESPONSIVE — small mobile (≤480px)
+           ============================================================ */
         @media (max-width: 480px) {
             .hero-text h1 { font-size: 1.8rem; }
             .btn { width: 100%; margin: 5px 0; text-align: center; }
-            
-            .social-icons { gap: 5px; }
-            .social-btn {
-                width: 34px; height: 34px; 
-                font-size: 1rem; 
-                margin: 0 3px; 
-            }
-            
-            .rating-grid { grid-template-columns: 1fr; }
+            .social-icons { gap: 3px; flex-wrap: nowrap; justify-content: center; }
+            .social-btn { width: 30px; height: 30px; font-size: 0.9rem; margin: 0 1px; }
         }
     </style>
+</head>
+<body>
 
-</head><body>
-
+    <!-- ══════════════════════════════════════════════════════════════
+         BACKGROUND
+         FILE PATH: Set the background image in the CSS block above.
+         Search for "FILE PATH" inside <style>.
+         ══════════════════════════════════════════════════════════════ -->
     <div class="background-container"></div>
     <div class="glass-overlay"></div>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         NAVIGATION
+         ══════════════════════════════════════════════════════════════ -->
     <nav>
         <div class="container">
             <a href="#" class="logo">Portfolio</a>
             <ul class="nav-links">
-                <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
-                <li><a href="#experience" onclick="toggleMenu()">Work Experience</a></li>
-                <li><a href="#education-training" onclick="toggleMenu()">Edu & Training</a></li>
-                <li><a href="#publications" onclick="toggleMenu()">Publications</a></li> 
-                <li><a href="#projects" onclick="toggleMenu()">Projects</a></li> 
-                <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
-                <li><a href="#conferences" onclick="toggleMenu()">Conferences</a></li>
-                <li><a href="#activities" onclick="toggleMenu()">ECS</a></li>
-                <li><a href="#certifications" onclick="toggleMenu()">Certifications</a></li>
+                <li><a href="#about"              onclick="toggleMenu()">About Me</a></li>
+                <li><a href="#experience"         onclick="toggleMenu()">Work Experience</a></li>
+                <li><a href="#education-training" onclick="toggleMenu()">Edu &amp; Training</a></li>
+                <li><a href="#publications"       onclick="toggleMenu()">Publications</a></li>
+                <li><a href="#projects"           onclick="toggleMenu()">Projects</a></li>
+                <li><a href="#skills"             onclick="toggleMenu()">Skills</a></li>
+                <li><a href="#conferences"        onclick="toggleMenu()">Conferences</a></li>
+                <li><a href="#activities"         onclick="toggleMenu()">ECS</a></li>
+                <li><a href="#certifications"     onclick="toggleMenu()">Certifications</a></li>
             </ul>
             <div class="nav-actions">
                 <button id="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -389,29 +582,48 @@
         </div>
     </nav>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════════════════════════ -->
     <header id="hero">
+        <!-- Floating colour orbs -->
+        <div class="hero-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <div class="orb orb-4"></div>
+        </div>
+
         <div class="container">
             <div class="hero-text">
                 <h1>Md Saazid Bin Saif</h1>
-                <h2>Researcher and Trainer- Institute of GIS & Remote Sensing</h2>
-                <p>Researcher & Trainer | GIS, Remote Sensing & Spatial Data Analyst | Bridging Technology & Environmental Science</p>
-                <a href="#contact" class="btn">Contact Me</a>
+                <!-- Typewriter — text is injected by JS -->
+                <h2><span id="typed-text"></span><span class="cursor"></span></h2>
+                <p>Researcher &amp; Trainer | GIS, Remote Sensing &amp; Spatial Data Analyst | Bridging Technology &amp; Environmental Science</p>
+                <span class="btn-wrap">
+                    <a href="#contact" class="btn">Contact Me</a>
+                </span>
             </div>
         </div>
     </header>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         ABOUT
+         ══════════════════════════════════════════════════════════════ -->
     <section id="about">
         <div class="container">
             <div class="glass-card">
                 <div class="about-grid">
                     <div class="about-photo-wrapper">
-                        <img src="./AF-94132.jpg" alt="Md Saazid" class="about-photo" 
+                        <!-- FILE PATH: Replace './AF-94132.jpg' with your profile photo path -->
+                        <img src="./AF-94132.jpg"
+                             alt="Md Saazid"
+                             class="about-photo"
                              onerror="this.src='https://via.placeholder.com/300?text=Saazid';">
                     </div>
                     <div class="about-content">
-                       <h3 style="margin-top: 0;">About Me</h3> 
+                        <h3 style="margin-top:0;">About Me</h3>
                         <p>Dedicated Researcher and Trainer specializing in Geographic Information Systems (GIS) and Remote Sensing. With a strong academic foundation in Geography and Environmental Studies, I focus on applying geospatial technologies to solve complex environmental challenges, such as Sea-Level Rise modeling and Land Use change analysis. Experienced in leading research teams and bridging the gap between spatial data and environmental policy through advanced analysis.</p>
-                        
                         <div class="info-list">
                             <div class="info-item"><i class="fas fa-phone"></i> +880 1603012448</div>
                             <div class="info-item"><i class="fas fa-map-marker-alt"></i> Mirzapur, Rajshahi</div>
@@ -423,37 +635,80 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         WORK EXPERIENCE
+         ══════════════════════════════════════════════════════════════ -->
     <section id="experience">
         <div class="container">
             <h2 class="section-title">Work Experience</h2>
             <div class="glass-card">
+
+                <!-- Most recent first -->
+                <div class="exp-item">
+                    <h3>Teacher Assistant</h3>
+                    <h4>Institute of GIS and Remote Sensing (IGRS)</h4>
+                    <div class="exp-date">April 2026 &ndash; May 2026</div>
+                    <p class="exp-course"><strong>Course Name:</strong> Google Earth Engine Professional Training Program</p>
+                    <div class="pub-links" style="margin-top:6px;">
+                        <a href="https://drive.google.com/file/d/1VnUm4Tp09VOkoHTUXQ8YhehgKSHy30AL/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <h3>Course Convener</h3>
+                    <h4>Institute of GIS and Remote Sensing (IGRS)</h4>
+                    <div class="exp-date">November 15, 2025 &ndash; January 15, 2026</div>
+                    <p class="exp-course"><strong>Course Name:</strong> QGIS Industry-Relevant Training Program</p>
+                    <div class="pub-links" style="margin-top:6px;">
+                        <a href="https://drive.google.com/file/d/1ONuSOaHmVF26RyXmwTAvryXi9JfhlUhe/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <h3>Teacher Assistant</h3>
+                    <h4>Institute of GIS and Remote Sensing (IGRS)</h4>
+                    <div class="exp-date">September 2025 &ndash; March 2026</div>
+                    <p class="exp-course"><strong>Course Name:</strong> ArcGIS 10.8 Basic to Advanced Training Program</p>
+                    <div class="pub-links" style="margin-top:6px;">
+                        <a href="https://drive.google.com/file/d/1CmlJEDYVqpOY3YMvrQOhHnH4nRT9Ffts/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
                 <div class="exp-item">
                     <h3>Researcher and Trainer</h3>
-                    <h4>Institute of GIS & Remote Sensing</h4>
-                    <div class="exp-date">June 2025 - Present</div>
+                    <h4>Institute of GIS &amp; Remote Sensing</h4>
+                    <div class="exp-date">June 2025 &ndash; Present</div>
                 </div>
+
                 <div class="exp-item">
                     <h3>Researcher</h3>
                     <h4>Bangladesh Green Environment Research Centre (BGERC)</h4>
-                    <div class="exp-date">March 23, 2025 - Present</div>
+                    <div class="exp-date">March 23, 2025 &ndash; Present</div>
                     <ul>
                         <li>Head of the research group team.</li>
-                        <li>Specialized in Geographic Information System & Remote Sensing.</li>
+                        <li>Specialized in Geographic Information System &amp; Remote Sensing.</li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         EDUCATION & TRAINING
+         ══════════════════════════════════════════════════════════════ -->
     <section id="education-training">
         <div class="container">
             <div class="split-grid">
+
                 <div class="glass-card">
-                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-graduation-cap"></i> Education</h2>
+                    <h2 class="section-title" style="font-size:1.5rem; text-align:left;">
+                        <i class="fas fa-graduation-cap"></i> Education
+                    </h2>
                     <div class="list-item">
-                        <h3>Bachelor of Science (Geography & Environmental Studies)</h3>
+                        <h3>Bachelor of Science (Geography &amp; Environmental Studies)</h3>
                         <h4>University of Rajshahi</h4>
-                        <p>2023 - Present</p>
+                        <p>2023 &ndash; Present</p>
                     </div>
                     <div class="list-item">
                         <h3>H.S.C (Science)</h3>
@@ -468,14 +723,16 @@
                 </div>
 
                 <div class="glass-card">
-                    <h2 class="section-title" style="font-size: 1.5rem; text-align: left;"><i class="fas fa-chalkboard-teacher"></i> Training</h2>
+                    <h2 class="section-title" style="font-size:1.5rem; text-align:left;">
+                        <i class="fas fa-chalkboard-teacher"></i> Training
+                    </h2>
                     <div class="list-item">
-                        <h3>Professional training on GIS Basic to Advance</h3>
+                        <h3>Professional Training on GIS Basic to Advance</h3>
                         <h4>Bangladesh Green Environmental Research Centre</h4>
                         <p>March 1, 2024 to Present</p>
                     </div>
                     <div class="list-item">
-                        <h3>Workshop on "Careers on Climate Change"</h3>
+                        <h3>Workshop on &ldquo;Careers on Climate Change&rdquo;</h3>
                         <h4>Organized By: Bangladesh Youth Climate School</h4>
                         <p>Collaborator: Brighters</p>
                     </div>
@@ -485,42 +742,59 @@
                         <p>Collaborator: UNICEF, Bangladesh</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         PUBLICATIONS
+         ══════════════════════════════════════════════════════════════ -->
     <section id="publications">
         <div class="container">
             <h2 class="section-title">Publications</h2>
-            <div class="glass-card" style="margin-bottom: 1.5rem;">
-                <div class="list-item" style="border-bottom: none;">
-                    <h3 style="line-height: 1.4; font-size: 1.15rem;">Modeling Relative Sea-Level Rise through Geodetic-Hydrodynamic Fusion: Quantifying Multi-Sectoral Risks in the Bengal Delta</h3>
-                    <div class="pub-meta" style="margin-top: 10px;">
-                        <span><i class="fas fa-user-friends"></i> Umme Nusrat Sorna, <strong style="color: var(--primary-color);">Md Saazid Bin Saif</strong>, FA Samiul Islam</span>
+
+            <div class="glass-card" style="margin-bottom:1.5rem;">
+                <div class="list-item" style="border-bottom:none;">
+                    <h3 style="line-height:1.4; font-size:1.15rem;">
+                        Modeling Relative Sea-Level Rise through Geodetic-Hydrodynamic Fusion: Quantifying Multi-Sectoral Risks in the Bengal Delta
+                    </h3>
+                    <div class="pub-meta" style="margin-top:10px;">
+                        <span><i class="fas fa-user-friends"></i>
+                            Umme Nusrat Sorna,
+                            <strong style="color:var(--primary-color);">Md Saazid Bin Saif</strong>,
+                            FA Samiul Islam
+                        </span>
                         <span><i class="fas fa-book-open"></i> Int. J. of Applied and Natural Sciences (2025)</span>
                     </div>
-                    <p class="pub-abstract" style="font-style: italic; color: var(--text-muted); opacity: 0.9;">
-                        "The Bengal Delta, one of the world's most dynamic and densely populated coastal systems, faces accelerating relative sea-level rise (RSLR) driven by complex interactions among eustatic rise, land subsidence, sediment compaction, and anthropogenic stress..."
+                    <p class="pub-abstract" style="font-style:italic; color:var(--text-muted); opacity:0.9;">
+                        &ldquo;The Bengal Delta, one of the world&rsquo;s most dynamic and densely populated coastal systems, faces accelerating relative sea-level rise (RSLR) driven by complex interactions among eustatic rise, land subsidence, sediment compaction, and anthropogenic stress&hellip;&rdquo;
                     </p>
-                    <div class="pub-links" style="display: flex; gap: 15px; align-items: center;">
-                        <span style="font-size: 0.85rem; color: var(--text-color);"><i class="fas fa-quote-right"></i> Cited by 2</span>
+                    <div class="pub-links" style="display:flex; gap:15px; align-items:center;">
+                        <span style="font-size:0.85rem; color:var(--text-color);"><i class="fas fa-quote-right"></i> Cited by 2</span>
                         <a href="https://doi.org/10.61424/ijans.v3i3.541" target="_blank">View Article <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
             </div>
 
             <div class="glass-card">
-                <div class="list-item" style="border-bottom: none;">
-                    <h3 style="line-height: 1.4; font-size: 1.15rem;">Temporal analysis of land use and land cover changes: A study of Kurigram Sadar Upazila, Bangladesh</h3>
-                    <div class="pub-meta" style="margin-top: 10px;">
-                        <span><i class="fas fa-user-friends"></i> Mritunjoy Mojumder, Shehan Tawsif, <strong style="color: var(--primary-color);">Md Saazid Bin Saif</strong>, Md. Abu Bakkar Siddique, Md. Iftekher Islam</span>
-                        <span><i class="fas fa-book-open"></i> Bangladesh Rural Development Studies, 28(2), 45-59 (2025)</span>
+                <div class="list-item" style="border-bottom:none;">
+                    <h3 style="line-height:1.4; font-size:1.15rem;">
+                        Temporal analysis of land use and land cover changes: A study of Kurigram Sadar Upazila, Bangladesh
+                    </h3>
+                    <div class="pub-meta" style="margin-top:10px;">
+                        <span><i class="fas fa-user-friends"></i>
+                            Mritunjoy Mojumder, Shehan Tawsif,
+                            <strong style="color:var(--primary-color);">Md Saazid Bin Saif</strong>,
+                            Md. Abu Bakkar Siddique, Md. Iftekher Islam
+                        </span>
+                        <span><i class="fas fa-book-open"></i> Bangladesh Rural Development Studies, 28(2), 45&ndash;59 (2025)</span>
                     </div>
-                    <p class="pub-abstract" style="font-style: italic; color: var(--text-muted); opacity: 0.9;">
-                        "This study analyzes the spatial trends of Land Use and Land Cover (LULC) in Kurigram Sadar Upazila, Bangladesh, during the last four decades (1990–2021). The maps of LULC were established from satellite data of the USGS Earth Explorer by conducting unsupervised classification of five classes..."
+                    <p class="pub-abstract" style="font-style:italic; color:var(--text-muted); opacity:0.9;">
+                        &ldquo;This study analyzes the spatial trends of Land Use and Land Cover (LULC) in Kurigram Sadar Upazila, Bangladesh, during the last four decades (1990&ndash;2021). The maps of LULC were established from satellite data of the USGS Earth Explorer by conducting unsupervised classification of five classes&hellip;&rdquo;
                     </p>
-                    <div class="pub-links" style="display: flex; gap: 15px; align-items: center;">
-                        <span style="font-size: 0.85rem; color: var(--text-color);"><i class="fas fa-quote-right"></i> Cited by 0</span>
+                    <div class="pub-links" style="display:flex; gap:15px; align-items:center;">
+                        <span style="font-size:0.85rem; color:var(--text-color);"><i class="fas fa-quote-right"></i> Cited by 0</span>
                         <a href="https://drive.google.com/file/d/1SSHHWexp_iJOHmk-hgH815SteA0Xkp6d/view?usp=drive_link" target="_blank">View Article <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
@@ -528,13 +802,18 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         PROJECTS
+         FILE PATH: Replace each src="..." with your image path.
+         ══════════════════════════════════════════════════════════════ -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
-                
+
                 <div class="project-card">
-                    <img src="./Map Digitization.png" alt="Map Digitization" class="project-img" 
+                    <!-- FILE PATH: Replace './Map Digitization.png' -->
+                    <img src="./Map Digitization.png" alt="Map Digitization" class="project-img"
                          onerror="this.src='https://via.placeholder.com/400x200?text=Map+Digitization';">
                     <div class="project-content">
                         <h3>Map Digitization</h3>
@@ -543,50 +822,59 @@
                 </div>
 
                 <div class="project-card">
-                    <img src="./Map Interpolation.jpg" alt="Map Interpolation" class="project-img" 
+                    <!-- FILE PATH: Replace './Map Interpolation.jpg' -->
+                    <img src="./Map Interpolation.jpg" alt="Map Interpolation" class="project-img"
                          onerror="this.src='https://via.placeholder.com/400x200?text=Map+Interpolation';">
-                     <div class="project-content">
+                    <div class="project-content">
                         <h3>Map Interpolation</h3>
                         <p>Applied advanced spatial interpolation techniques (IDW/Kriging) to predict unknown values for specific locations based on sample data points.</p>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="./Land Use Land Cover.png" alt="Land Use Land Cover" class="project-img" 
+                    <!-- FILE PATH: Replace './Land Use Land Cover.png' -->
+                    <img src="./Land Use Land Cover.png" alt="Land Use Land Cover" class="project-img"
                          onerror="this.src='https://via.placeholder.com/400x200?text=LULC';">
-                   <div class="project-content">
+                    <div class="project-content">
                         <h3>Land Use Land Cover</h3>
                         <p>Analyzed satellite imagery to classify land surface features, monitoring changes in vegetation, water bodies, and urbanization trends over time.</p>
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <img src="./Normilize Indexing.png" alt="Normalized Indexing" class="project-img" 
-                        onerror="this.src='https://via.placeholder.com/400x200?text=Indexing';">
+                    <!-- FILE PATH: Replace './Normilize Indexing.png' -->
+                    <img src="./Normilize Indexing.png" alt="Normalized Indexing" class="project-img"
+                         onerror="this.src='https://via.placeholder.com/400x200?text=Indexing';">
                     <div class="project-content">
                         <h3>Normalized Indexing</h3>
                         <p>Calculated spectral indices such as NDVI and NDWI from remote sensing data to assess vegetation health and water content for environmental monitoring.</p>
                     </div>
-                </div> 
+                </div>
 
                 <div class="project-card">
-                    <img src="./LST.png" alt="Land Surface Temperature" class="project-img" 
-                        onerror="this.src='https://via.placeholder.com/400x200?text=LST';">
+                    <!-- FILE PATH: Replace './LST.png' -->
+                    <img src="./LST.png" alt="Land Surface Temperature" class="project-img"
+                         onerror="this.src='https://via.placeholder.com/400x200?text=LST';">
                     <div class="project-content">
-                       <h3>Land Surface Temperature</h3>
+                        <h3>Land Surface Temperature</h3>
                         <p>Processed thermal imagery to calculate Land Surface Temperature, assessing heat distribution and climatic trends for environmental monitoring.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         TECHNICAL SKILLS
+         ══════════════════════════════════════════════════════════════ -->
     <section id="skills">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
+
                 <div class="glass-card">
-                    <h3>GIS & Remote Sensing</h3>
+                    <h3>GIS &amp; Remote Sensing</h3>
                     <ul class="skill-list">
                         <li>ArcGIS 10.8</li>
                         <li>ArcGIS Pro</li>
@@ -608,72 +896,86 @@
                 </div>
 
                 <div class="glass-card">
-                    <h3>Other Skills</h3> 
+                    <h3>Other Skills</h3>
                     <ul class="skill-list">
                         <li>Microsoft Word</li>
-                        <li>Microsoft Powerpoint</li>
+                        <li>Microsoft PowerPoint</li>
                         <li>Microsoft Excel</li>
                         <li>Basic Graphics Design</li>
                         <li>Basic Video Editing</li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         CONFERENCES
+         ══════════════════════════════════════════════════════════════ -->
     <section id="conferences">
         <div class="container">
             <h2 class="section-title">Conferences</h2>
             <div class="glass-card">
 
-
                 <div class="list-item">
-                    <h3 style="margin-bottom: 0.3rem;">International Conference on Climate Extremes, Disasters, Anticipatory Actions and Human Health (CEDAAH 2026)</h3>
-                    <p><strong>Organizing Institution:</strong> Bangladesh University of Engineering and Technology | Institute of Water and Flood Management - IWFM</p>
+                    <h3 style="margin-bottom:0.3rem;">
+                        International Conference on Climate Extremes, Disasters, Anticipatory Actions and Human Health (CEDAAH 2026)
+                    </h3>
+                    <p><strong>Organizing Institution:</strong> Bangladesh University of Engineering and Technology | Institute of Water and Flood Management &ndash; IWFM</p>
                     <p><strong>Location:</strong> Dhaka, Bangladesh</p>
-                    <p><strong>Role:</strong> Poster Presenter </p>
-                    <p><strong>Date:</strong> 8-9 April, 2026</p>
-                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                    <p><strong>Role:</strong> Poster Presenter</p>
+                    <p><strong>Date:</strong> 8&ndash;9 April, 2026</p>
+                    <div class="pub-links" style="margin-top:10px; display:flex; gap:15px;">
                         <a href="https://drive.google.com/file/d/17MJg5cVOumV-FHOqI8A_Dl59J_VDNokm/view?usp=sharing" target="_blank">View Abstract <i class="fas fa-external-link-alt"></i></a>
                         <a href="https://drive.google.com/file/d/1hnBugASkcb1bYyzCbrt8_ckTOAdZZgXB/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
                 <div class="list-item">
-                    <h3 style="margin-bottom: 0.3rem;">International Conference on Geoscinces for Achieving Sustainable Development Goals (ICGSDG)</h3>
+                    <h3 style="margin-bottom:0.3rem;">
+                        International Conference on Geosciences for Achieving Sustainable Development Goals (ICGSDG)
+                    </h3>
                     <p><strong>Organizing Institution:</strong> University of Rajshahi | Faculty of Geoscience</p>
                     <p><strong>Location:</strong> Rajshahi, Bangladesh</p>
                     <p><strong>Role:</strong> Oral Presenter</p>
-                    <p><strong>Date:</strong> 14-15 March, 2025</p>
-                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                    <p><strong>Date:</strong> 14&ndash;15 March, 2025</p>
+                    <div class="pub-links" style="margin-top:10px; display:flex; gap:15px;">
                         <a href="https://drive.google.com/file/d/1IpXsdzlBNzlC4wJc7kLF_bzZQ-77KLNZ/view?usp=drive_link" target="_blank">View Abstract <i class="fas fa-external-link-alt"></i></a>
                         <a href="https://drive.google.com/file/d/1bAUT_iutWPDVi64azPKzfmQN8TKJ-kid/view?usp=drive_link" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
                     </div>
                 </div>
 
                 <div class="list-item">
-                    <h3 style="margin-bottom: 0.3rem;">International Student Conference and Research Fair</h3>
-                    <p><strong>Organizing Institution:</strong> Rajshahi University Research Society- RURS | University of Rajshahi</p>
+                    <h3 style="margin-bottom:0.3rem;">
+                        International Student Conference and Research Fair
+                    </h3>
+                    <p><strong>Organizing Institution:</strong> Rajshahi University Research Society &ndash; RURS | University of Rajshahi</p>
                     <p><strong>Location:</strong> Rajshahi, Bangladesh</p>
-                    <p><strong>Role:</strong> Listener </p>
-                    <p><strong>Date:</strong> 22-23 February, 2025</p>
-                    <div class="pub-links" style="margin-top: 10px; display: flex; gap: 15px;">
+                    <p><strong>Role:</strong> Listener</p>
+                    <p><strong>Date:</strong> 22&ndash;23 February, 2025</p>
+                    <div class="pub-links" style="margin-top:10px; display:flex; gap:15px;">
                         <a href="https://drive.google.com/file/d/1O3Q5fbj85Y9Wx0o_2vF6BsSB4WokQ0xy/view?usp=sharing" target="_blank">View Certificate <i class="fas fa-external-link-alt"></i></a>
-                 </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+
+            </div><!-- /.glass-card -->
+        </div><!-- /.container -->
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         ECS
+         ══════════════════════════════════════════════════════════════ -->
     <section id="activities">
         <div class="container">
-            <h2 class="section-title">ECS</h2>
+            <h2 class="section-title">Extra Curricular Activities</h2>
             <div class="glass-card">
                 <div class="list-item">
-                    <h4>Active Participant of Workshop on "Careers on Climate Change"</h4>
+                    <h4>Active Participant of Workshop on &ldquo;Careers on Climate Change&rdquo;</h4>
                     <p>Bangladesh Youth Climate School | 23 December, 2023</p>
                 </div>
                 <div class="list-item">
-                    <h4>Deputy Head of Event & Logistics</h4>
+                    <h4>Deputy Head of Event &amp; Logistics</h4>
                     <p>Rajshahi University Entrepreneur Association (RUEA)</p>
                 </div>
                 <div class="list-item">
@@ -688,116 +990,214 @@
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         CERTIFICATIONS
+         ══════════════════════════════════════════════════════════════ -->
     <section id="certifications">
         <div class="container">
             <h2 class="section-title">Certifications</h2>
             <div class="glass-card">
-                <div class="cert-item">
-                    <div>
-                        <h3>Machine Learning with Python</h3>
-                        <p>Lead Academy (Endorsed by UN Global Compact) | Feb 2025</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Machine Learning with Python</h3>
+                    <p>Lead Academy (Endorsed by UN Global Compact) | Feb 2025</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>Fundamental GIS Course</h3>
-                        <p>Bangladesh Green Environmental Research Center | ID: BGERC-05008</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Fundamental GIS Course</h3>
+                    <p>Bangladesh Green Environmental Research Center | ID: BGERC-05008</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>Basic to Advanced Training on Google Earth Engine</h3>
-                        <p>ResGeo Lab | 22 February, 2026</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Basic to Advanced Training on Google Earth Engine</h3>
+                    <p>ResGeo Lab | 22 February, 2026</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>Application of Drone Data Acquisition & Processing</h3>
-                        <p>Bangladesh Green Environmental Research Center | ID: B-D2-105-2025</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Application of Drone Data Acquisition &amp; Processing</h3>
+                    <p>Bangladesh Green Environmental Research Center | ID: B-D2-105-2025</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>Basic to Advanced Training on ArcGIS Pro</h3>
-                        <p>ResGeo Lab | 21 February, 2026</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Basic to Advanced Training on ArcGIS Pro</h3>
+                    <p>ResGeo Lab | 21 February, 2026</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>Complete Remote Sensing Image Analysis with ENVI Software</h3>
-                        <p>Udemy | January 2026</p>
-                    </div>
+                <div class="list-item">
+                    <h3>Complete Remote Sensing Image Analysis with ENVI Software</h3>
+                    <p>Udemy | January 2026</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>ArcPy for ArcMap Level 1</h3>
-                        <p>Udemy: Python Programming for ArcGIS</p>
-                    </div>
+                <div class="list-item">
+                    <h3>ArcPy for ArcMap Level 1</h3>
+                    <p>Udemy: Python Programming for ArcGIS</p>
                 </div>
-                <div class="cert-item">
-                    <div>
-                        <h3>The Impact of Space Flight on the Environment</h3>
-                        <p>Alison | September 2024</p>
-                    </div>
+                <div class="list-item">
+                    <h3>The Impact of Space Flight on the Environment</h3>
+                    <p>Alison | September 2024</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         FOOTER / CONTACT
+         ══════════════════════════════════════════════════════════════ -->
     <footer id="contact">
         <div class="container">
-            <h2 style="margin-bottom: 2rem;">Connect With Me</h2>
+            <h2 style="margin-bottom:2rem;">Connect With Me</h2>
             <div class="social-icons">
-                <a href="https://www.facebook.com/Saazid24" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/saazid/" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.youtube.com/channel/UCh7rxk-zls5ahpsBchpMtYw" class="social-btn"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/nameless_person2004/" class="social-btn"><i class="fab fa-instagram"></i></a>
-                <a href="https://scholar.google.com/citations?user=1ZUcngUAAAAJ&hl=en" class="social-btn"><i class="ai ai-google-scholar"></i></a>
-                <a href="https://orcid.org/0009-0005-2538-1828" class="social-btn"><i class="ai ai-orcid"></i></a>
-                <a href="https://www.researchgate.net/profile/Md-Saazid-Bin-Saif" class="social-btn"><i class="ai ai-researchgate"></i></a>
+                <a href="https://www.facebook.com/Saazid24"                                        class="social-btn" title="Facebook">       <i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/in/saazid/"                                      class="social-btn" title="LinkedIn">       <i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCh7rxk-zls5ahpsBchpMtYw"                class="social-btn" title="YouTube">        <i class="fab fa-youtube"></i></a>
+                <a href="https://www.instagram.com/nameless_person2004/"                           class="social-btn" title="Instagram">      <i class="fab fa-instagram"></i></a>
+                <a href="https://scholar.google.com/citations?user=1ZUcngUAAAAJ&amp;hl=en"         class="social-btn" title="Google Scholar"> <i class="ai ai-google-scholar"></i></a>
+                <a href="https://orcid.org/0009-0005-2538-1828"                                    class="social-btn" title="ORCID">          <i class="ai ai-orcid"></i></a>
+                <a href="https://www.researchgate.net/profile/Md-Saazid-Bin-Saif"                  class="social-btn" title="ResearchGate">   <i class="ai ai-researchgate"></i></a>
+                <a href="https://rubd.academia.edu/MdSaazidBinSaif"                               class="social-btn" title="Academia.edu">   <i class="ai ai-academia"></i></a>
             </div>
             <p>&copy; 2026 Md Saazid Bin Saif. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- ══════════════════════════════════════════════════════════════
+         JAVASCRIPT
+         ══════════════════════════════════════════════════════════════ -->
     <script>
-        // Toggle Mobile Menu
+        /* ── Mobile menu toggle ── */
         function toggleMenu() {
-            const nav = document.querySelector('.nav-links');
-            const toggleIcon = document.querySelector('.menu-toggle i');
-            
+            const nav  = document.querySelector('.nav-links');
+            const icon = document.querySelector('.menu-toggle i');
             nav.classList.toggle('active');
-
-            // Switch Icon Class (Bars <-> X)
-            if(nav.classList.contains('active')) {
-                toggleIcon.classList.remove('fa-bars');
-                toggleIcon.classList.add('fa-xmark'); 
-            } else {
-                toggleIcon.classList.remove('fa-xmark');
-                toggleIcon.classList.add('fa-bars');
-            }
+            icon.classList.replace(
+                nav.classList.contains('active') ? 'fa-bars'  : 'fa-xmark',
+                nav.classList.contains('active') ? 'fa-xmark' : 'fa-bars'
+            );
         }
 
-        // Theme Toggle
+        /* ── Dark / Light theme toggle ── */
         const themeBtn = document.getElementById('theme-toggle');
-        const icon = themeBtn.querySelector('i');
-        const body = document.body;
-
-        if(localStorage.getItem('theme') === 'light'){
-            body.classList.add('light-mode');
-            icon.classList.replace('fa-moon', 'fa-sun');
+        const themeIcon = themeBtn.querySelector('i');
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
         }
-
         themeBtn.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            if(body.classList.contains('light-mode')){
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('theme', 'light');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('theme', 'dark');
-            }
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeIcon.classList.replace(isLight ? 'fa-moon' : 'fa-sun', isLight ? 'fa-sun' : 'fa-moon');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
+
+        /* ── Typewriter — cycle through role titles ── */
+        const roles = [
+            'Researcher & Trainer',
+            'GIS & Remote Sensing Specialist',
+            'Spatial Data Analyst',
+            'Environmental Science Researcher'
+        ];
+        let roleIdx = 0, charIdx = 0, deleting = false;
+        const typedEl = document.getElementById('typed-text');
+
+        function typeWriter() {
+            const current = roles[roleIdx];
+            typedEl.textContent = deleting
+                ? current.substring(0, --charIdx)
+                : current.substring(0, ++charIdx);
+
+            let delay = deleting ? 55 : 95;
+
+            if (!deleting && charIdx === current.length) {
+                delay = 1800;
+                deleting = true;
+            } else if (deleting && charIdx === 0) {
+                deleting = false;
+                roleIdx = (roleIdx + 1) % roles.length;
+                delay = 400;
+            }
+            setTimeout(typeWriter, delay);
+        }
+        /* Start after hero entrance animation finishes */
+        setTimeout(typeWriter, 1200);
+
+        /* ── Nav: shrink on scroll + highlight active section ── */
+        const navEl       = document.querySelector('nav');
+        const navAnchors  = document.querySelectorAll('.nav-links a[href^="#"]');
+        const allSections = document.querySelectorAll('section[id], header[id]');
+
+        window.addEventListener('scroll', () => {
+            navEl.classList.toggle('scrolled', window.scrollY > 60);
+
+            let current = '';
+            allSections.forEach(sec => {
+                if (window.scrollY >= sec.offsetTop - 130) current = sec.id;
+            });
+            navAnchors.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        }, { passive: true });
+
+        /* ── Scroll-reveal with IntersectionObserver ── */
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                revealObs.unobserve(entry.target);
+            });
+        }, { threshold: 0.1 });
+
+        /* Glass cards — fade up, staggered within each parent */
+        document.querySelectorAll('.glass-card').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = (i % 2 * 0.1) + 's';
+            revealObs.observe(el);
+        });
+
+        /* Project cards — staggered left-to-right */
+        document.querySelectorAll('.project-card').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = (i * 0.1) + 's';
+            revealObs.observe(el);
+        });
+
+        /* Section titles */
+        document.querySelectorAll('.section-title').forEach(el => {
+            el.classList.add('reveal');
+            revealObs.observe(el);
+        });
+
+        /* Experience items — slide from left */
+        document.querySelectorAll('.exp-item').forEach((el, i) => {
+            el.classList.add('reveal', 'from-left');
+            el.style.transitionDelay = (i * 0.15) + 's';
+            revealObs.observe(el);
+        });
+
+        /* List items inside cards */
+        document.querySelectorAll('.list-item').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = (i % 5 * 0.08) + 's';
+            revealObs.observe(el);
+        });
+
+        /* Social buttons — staggered */
+        document.querySelectorAll('.social-btn').forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.transitionDelay = (i * 0.07) + 's';
+            revealObs.observe(el);
+        });
+
+        /* ── Skill list items — staggered cascade on card reveal ── */
+        const skillObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.querySelectorAll('li').forEach((li, i) => {
+                    li.style.opacity = '0';
+                    li.style.transform = 'translateX(-18px)';
+                    setTimeout(() => {
+                        li.style.opacity = '1';
+                        li.style.transform = 'translateX(0)';
+                    }, i * 90);
+                });
+                skillObs.unobserve(entry.target);
+            });
+        }, { threshold: 0.25 });
+
+        document.querySelectorAll('.skill-list').forEach(ul => skillObs.observe(ul));
     </script>
+
 </body>
 </html>
